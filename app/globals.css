@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --ivory: #FBF8F1;
+  --warm-white: #FDFCF9;
+  --sand: #EFE6D6;
+  --beige: #E4D8C4;
+  --gold: #C7A34E;
+  --gold-deep: #9C7C2E;
+  --maroon: #6E2B2B;
+  --forest: #33473B;
+  --ink: #2B211B;
+  /* Warm near-black used only for the intro overlay's opening frame — a
+     deep espresso-brown rather than pure black, so the very first frame
+     still feels warm/intentional instead of a harsh void. This is the sole
+     sanctioned "near-black" in the palette; nothing in the codebase should
+     use pure #000. */
+  --intro-espresso: #1A120B;
+}
+
+/*
+ * Tailwind v4 CSS-first theme.
+ * `@theme inline` re-exports our runtime CSS variables (design tokens above,
+ * and the next/font variables applied to <html> in app/layout.tsx) as
+ * Tailwind theme values, so they become usable as utility classes:
+ *   bg-ivory, text-ink, border-gold, bg-gold-deep, font-serif, font-sans, font-script, etc.
+ * "inline" tells Tailwind to keep the var() reference rather than trying to
+ * resolve it at build time (the font variables are only known at runtime).
+ */
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-warm-white: var(--warm-white);
+  --color-sand: var(--sand);
+  --color-beige: var(--beige);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-maroon: var(--maroon);
+  --color-forest: var(--forest);
+  --color-ink: var(--ink);
+  --color-intro-espresso: var(--intro-espresso);
+
+  --font-serif: var(--font-cormorant), serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-script: var(--font-dancing), cursive;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis owns scrolling */
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
