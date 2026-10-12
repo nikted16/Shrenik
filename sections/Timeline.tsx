@@ -58,7 +58,10 @@ function TimelineRow({
           isLeft ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8",
         )}
       >
-        <div className="relative aspect-[3/2] overflow-hidden rounded-[1.75rem] border border-beige/70 bg-warm-white shadow-[0_24px_60px_-45px_rgba(43,33,27,0.5)] transition-shadow duration-500 hover:shadow-[0_28px_66px_-38px_rgba(110,43,43,0.4)]">
+        {/* A grid stacks an aspect-ratio spacer and the text in one cell, so the
+            card is at least 3:2 but grows when the text needs more room (narrow
+            phones) instead of clipping it. */}
+        <div className="relative grid overflow-hidden rounded-[1.75rem] border border-beige/70 bg-warm-white shadow-[0_24px_60px_-45px_rgba(43,33,27,0.5)] transition-shadow duration-500 hover:shadow-[0_28px_66px_-38px_rgba(110,43,43,0.4)]">
           {/* The event illustration at 0.8 opacity. Flipped on right-side rows
               so the couple faces outward and the cream text-space sits toward
               the spine. */}
@@ -76,27 +79,36 @@ function TimelineRow({
             className={cn(
               "absolute inset-0",
               isLeft
-                ? "bg-gradient-to-r from-warm-white/0 via-warm-white/30 to-warm-white/70"
-                : "bg-gradient-to-l from-warm-white/0 via-warm-white/30 to-warm-white/70",
+                ? "bg-gradient-to-r from-warm-white/0 via-warm-white/50 to-warm-white/85 sm:via-warm-white/30 sm:to-warm-white/70"
+                : "bg-gradient-to-l from-warm-white/0 via-warm-white/50 to-warm-white/85 sm:via-warm-white/30 sm:to-warm-white/70",
             )}
             aria-hidden
           />
 
+          <div className="aspect-[3/2] [grid-area:1/1]" aria-hidden />
+
           {/* Text sitting directly on the cream side of the image. */}
           <div
             className={cn(
-              "absolute inset-y-0 flex w-[58%] flex-col justify-center px-6 sm:px-8",
-              isLeft ? "right-0 items-end text-right" : "left-0 items-start text-left",
+              "relative flex w-[70%] flex-col justify-center px-5 py-8 [grid-area:1/1] sm:w-[58%] sm:px-8",
+              isLeft
+                ? "items-end justify-self-end text-right"
+                : "items-start justify-self-start text-left",
             )}
           >
-            <p className="font-sans text-xs font-medium uppercase tracking-[0.28em] text-gold-deep">
+            <p className="font-sans text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-maroon drop-shadow-[0_1px_2px_rgba(253,252,249,0.9)] sm:text-xs sm:tracking-[0.28em]">
               {formatDate(milestone.date)}
-              {milestone.timeOfDay ? ` · ${milestone.timeOfDay}` : ""}
+              {milestone.timeOfDay ? (
+                <span className="block sm:inline">
+                  <span className="hidden sm:inline"> · </span>
+                  {milestone.timeOfDay}
+                </span>
+              ) : null}
             </p>
             <h3 className="mt-2 font-serif text-3xl text-maroon drop-shadow-[0_1px_2px_rgba(253,252,249,0.8)] sm:text-4xl">
               {milestone.name}
             </h3>
-            <p className="mt-2 max-w-xs font-sans text-sm leading-relaxed text-ink/80">
+            <p className="mt-2 hidden max-w-xs font-sans text-sm leading-relaxed text-ink/80 sm:block">
               {milestone.description}
             </p>
           </div>
