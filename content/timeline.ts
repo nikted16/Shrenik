@@ -18,7 +18,7 @@ export const timeline: Milestone[] = [
   },
   {
     id: "mehndi",
-    name: "Mehndi",
+    name: "Mehndi / Sangeet",
     date: "2026-11-23",
     timeOfDay: "Evening",
     icon: "flower",
