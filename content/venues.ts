@@ -29,7 +29,7 @@ export const venues: Venue[] = [
     id: "yamuna-inn",
     name: "Hotel Yamuna Inn",
     city: "Prayagraj, Uttar Pradesh",
-    events: "Mehndi & Haldi",
+    events: "Haldi & Sangeet",
     mapUrl: "https://maps.app.goo.gl/nsVBiJyafhW62gJYA",
     lat: 25.4107485,
     lng: 81.8426154,
