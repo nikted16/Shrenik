@@ -26,7 +26,7 @@ export function Begin() {
   const prefersReducedMotion = useReducedMotion();
 
   const scrollToNext = () => {
-    document.getElementById("journey")?.scrollIntoView({
+  ref.current?.nextElementSibling?.scrollIntoView({
       behavior: prefersReducedMotion ? "auto" : "smooth",
     });
   };
