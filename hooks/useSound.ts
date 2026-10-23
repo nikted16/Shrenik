@@ -6,7 +6,7 @@ export type SoundName = "bells" | "flute" | "shloka";
 
 export const SOUND_SRC: Record<SoundName, string> = {
   bells: "/assets/audio/bells.mp3",
-  flute: "/assets/audio/flute.mp3",
+  flute: "/assets/audio/titanic.mp3",
   shloka: "/assets/audio/shloka.mp3",
 };
 
