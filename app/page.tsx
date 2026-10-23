@@ -62,7 +62,7 @@ export default function Home() {
         <SaveTheDate />
         <Family />
         <Timeline />
-        {SHOW_GALLERY ? <Gallery /> : null}
+        {!IS_FAMILY ? <Gallery /> : null}
         <Venue />
         <Rsvp />
         <Footer />
