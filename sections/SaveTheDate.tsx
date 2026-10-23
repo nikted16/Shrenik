@@ -6,7 +6,7 @@ import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { PhoneFrame } from "@/components/shared/PhoneFrame";
 
-const VIDEO_SRC = "/assets/video/save-the-date.mp4";
+const VIDEO_SRC = "/assets/video/save_the_date.mp4";
 const POSTER_SRC = "/assets/video/save-the-date-poster.jpg";
 
 /**
