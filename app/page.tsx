@@ -20,6 +20,7 @@ import { usePrefersIntro } from "@/hooks/usePrefersIntro";
 /** The "Moments · Captured Together" photo gallery is hidden for now — flip
  * to true to bring it back. */
 const SHOW_GALLERY = false;
+const IS_FAMILY = process.env.NEXT_PUBLIC_EDITION === "family";
 
 export default function Home() {
   const { shouldShowIntro, markSeen } = usePrefersIntro();
@@ -56,7 +57,7 @@ export default function Home() {
       <main>
         <Hero introFinished={introFinished} />
         <Begin />
-        <Journey />
+        {IS_FAMILY ? <Journey /> : null}
         <Countdown />
         <SaveTheDate />
         <Family />
