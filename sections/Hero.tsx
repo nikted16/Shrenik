@@ -26,8 +26,8 @@ export interface HeroProps {
 export function Hero({ introFinished = true }: HeroProps) {
   const prefersReducedMotion = useReducedMotion();
 
-  const scrollToNext = () => {
-    document.getElementById("begin")?.scrollIntoView({
+  const scrollToNext = (event: React.MouseEvent<HTMLElement>) => {
+  event.currentTarget.closest("section")?.nextElementSibling?.scrollIntoView({
       behavior: prefersReducedMotion ? "auto" : "smooth",
     });
   };
