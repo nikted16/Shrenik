@@ -58,11 +58,11 @@ export default function Home() {
         <Hero introFinished={introFinished} />
         <Begin />
         {!IS_FAMILY ? <Journey /> : null}
+        {!IS_FAMILY ? <Gallery /> : null}
         <Countdown />
         <SaveTheDate />
         <Family />
         <Timeline />
-        {!IS_FAMILY ? <Gallery /> : null}
         <Venue />
         <Rsvp />
         <Footer />
