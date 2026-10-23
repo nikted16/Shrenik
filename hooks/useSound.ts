@@ -5,9 +5,9 @@ import { createContext, useContext } from "react";
 export type SoundName = "bells" | "flute" | "shloka";
 
 export const SOUND_SRC: Record<SoundName, string> = {
-  bells: "/assets/audio/bells.mp3",
+  bells: "/assets/audio/titanic.mp3",
   flute: "/assets/audio/titanic.mp3",
-  shloka: "/assets/audio/shloka.mp3",
+  shloka: "/assets/audio/titanic.mp3",
 };
 
 /** The ambient bed that plays/stops as the sound toggle is flipped. */
